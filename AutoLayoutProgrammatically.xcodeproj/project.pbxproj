@@ -15,6 +15,7 @@
 		122CFCAF280CAEA9002D9545 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122CFCAE280CAEA9002D9545 /* Assets.xcassets */; };
 		122CFCB2280CAEA9002D9545 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122CFCB0280CAEA9002D9545 /* LaunchScreen.storyboard */; };
 		124CBD122811E07700862302 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124CBD112811E07700862302 /* SwipingController.swift */; };
+		12A6EC7828173303005282C0 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A6EC7728173302005282C0 /* PageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		122CFCB1280CAEA9002D9545 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		122CFCB3280CAEA9002D9545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		124CBD112811E07700862302 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
+		12A6EC7728173302005282C0 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				122CFCAE280CAEA9002D9545 /* Assets.xcassets */,
 				122CFCB0280CAEA9002D9545 /* LaunchScreen.storyboard */,
 				122CFCB3280CAEA9002D9545 /* Info.plist */,
+				12A6EC7728173302005282C0 /* PageModel.swift */,
 			);
 			path = AutoLayoutProgrammatically;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				1218255D2811F16C00FBC70D /* PageCell.swift in Sources */,
 				122CFCA6280CAEA8002D9545 /* AppDelegate.swift in Sources */,
 				122CFCA8280CAEA8002D9545 /* SceneDelegate.swift in Sources */,
+				12A6EC7828173303005282C0 /* PageModel.swift in Sources */,
 				124CBD122811E07700862302 /* SwipingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

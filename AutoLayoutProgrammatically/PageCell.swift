@@ -9,18 +9,37 @@ import UIKit
 
 class PageCell: UICollectionViewCell {
     
-    let redSquareImageView: UIImageView = {
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 200, height: 200))
-        let redSquareImage = renderer.image { ctx in
-            ctx.cgContext.setFillColor(UIColor.red.cgColor)
+    var page: PageModel? {
+        didSet {
+            
+            guard let unwrappedPage = page else { return }
+            
+            let renderer = UIGraphicsImageRenderer(size: CGSize(width: 200, height: 200))
+            let squareImage = renderer.image { ctx in
+                ctx.cgContext.setFillColor(unwrappedPage.squareColor)
 
-            let rectangle = CGRect(x: 0, y: 0, width: 200, height: 200)
-            ctx.cgContext.addRect(rectangle)
-            ctx.cgContext.drawPath(using: .fillStroke)
+                let rectangle = CGRect(x: 0, y: 0, width: 200, height: 200)
+                ctx.cgContext.addRect(rectangle)
+                ctx.cgContext.drawPath(using: .fillStroke)
+            }
+            
+            squareImageView.image = squareImage
+            
+            
+            let attribitedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [.font: UIFont.boldSystemFont(ofSize: 20)])
+            
+            attribitedText.append(NSAttributedString(string: "\n\n\n" + unwrappedPage.mainText, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.gray]))
+            
+            descriptionTextView.attributedText = attribitedText
+            descriptionTextView.textAlignment = .center
+            
         }
         
-        let imageView = UIImageView(image: redSquareImage)
+    }
+    
+    let squareImageView: UIImageView = {
         
+        let imageView = UIImageView()
         //this enables autolayout for imageView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -30,11 +49,7 @@ class PageCell: UICollectionViewCell {
     
     let descriptionTextView: UITextView = {
         let textView = UITextView()
-        let attribitedText = NSMutableAttributedString(string: "Some some some some some some some!", attributes: [.font: UIFont.boldSystemFont(ofSize: 20)])
         
-        attribitedText.append(NSAttributedString(string: "\n\n\nSome some some some some some some! Some some some some some some some! Some some some some some some some!", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.gray]))
-        
-        textView.attributedText = attribitedText
         textView.textAlignment = .center
         textView.isEditable = false
         textView.isScrollEnabled = false
@@ -67,12 +82,12 @@ class PageCell: UICollectionViewCell {
         topImageContainerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         topImageContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
         
-        topImageContainerView.addSubview(redSquareImageView)
+        topImageContainerView.addSubview(squareImageView)
         
         //red square layout
-        redSquareImageView.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor).isActive = true
-        redSquareImageView.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor).isActive = true
-        redSquareImageView.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.5).isActive = true
+        squareImageView.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor).isActive = true
+        squareImageView.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor).isActive = true
+        squareImageView.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.5).isActive = true
         
 //        text view layout
         addSubview(descriptionTextView)
