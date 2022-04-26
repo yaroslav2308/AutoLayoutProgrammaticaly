@@ -9,6 +9,20 @@ import UIKit
 
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        coordinator.animate { _ in
+            self.collectionViewLayout.invalidateLayout()
+            let indexPath = IndexPath(item: self.pageControl.currentPage, section: 0)
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        } completion: { _ in
+            
+        }
+
+        
+        
+    }
+    
     let pages = [
         PageModel(squareColor: UIColor.red.cgColor, headerText: "Some some some some some!", mainText: "Some some some some some some some! Some some some some some some some! Some some some some some some some!"),
         PageModel(squareColor: UIColor.blue.cgColor, headerText: "SomE somE somE somE somE!", mainText: "Some some some some some some some! Some some some some some some some! Some some some some some some some!"),
